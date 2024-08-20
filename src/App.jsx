@@ -1,24 +1,43 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { About, Categories, Contact, Home } from "./pages";
 
 function App() {
-	const [count, setCount] = useState(0);
-
-	return (
-		<>
-			<h1 className=" font-bold text-blue-400 text-center text-6xl">
-				Hello world!
-			</h1>
-			<p className="text-blue-800 w-[80%]  m-auto mt-5">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptate
-				aliquid a aperiam quod necessitatibus inventore illum hic porro nobis
-				illo rerum sapiente unde magnam, doloribus eligendi, deserunt corporis
-				ad!
-			</p>
-		</>
-	);
+	const router = createBrowserRouter([
+		{
+			path: "/",
+			element: (
+				<>
+					<Home />
+				</>
+			),
+		},
+		{
+			path: "/categories",
+			element: (
+				<>
+					<Categories />
+				</>
+			),
+		},
+		{
+			path: "/about",
+			element: (
+				<>
+					<About />
+				</>
+			),
+		},
+		{
+			path: "/contact",
+			element: (
+				<>
+					<Contact />
+				</>
+			),
+		},
+	]);
+	return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
